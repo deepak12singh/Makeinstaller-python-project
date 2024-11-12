@@ -1,5 +1,6 @@
 import sys
-GENERATIVE_AI_KEY = 'AIzaSyDDxDW0vukR0mrwrR_4b2CMqnkSwA7T6H4'
+import subprocess
+
 def find_line_number(filename, search_key):
     """Finds and returns the line numbers where `search_key` appears in the file. 
     If not found, returns the line number after the last line."""
@@ -89,6 +90,58 @@ def Set_GENERATIVE_AI_KEY_(key='None'):
     insert_line_at_number(filename, line_number, f"GENERATIVE_AI_KEY = '{key}'")
     print('Succefuly update GENERATIVE_AI_KEY = ',key)
 
-key = sys.argv[1]
+def Set_All_Config(key, value):
+    filename = "config.py"
+    line_numbers = find_line_number(filename,value)
+
+    # If the search_key was not found, line_numbers will have the next available line number
+    line_number = line_numbers[-1]
+    print(f"Line number to insert: {line_number}")
+
+    try:
+        # If line_number is not in range or invalid, avoid deletion attempt
+        delete_line_by_number(filename, line_number)
+    except Exception as e:
+        print(f"Error in deletion: {e}")
+
+    # Insert the new data at the specified line number
+    insert_line_at_number(filename, line_number, f"{key} = '{value}'")
+    print(f'Succefuly update {key} = {value}')
+
+
+def run_other_file(file_path, args):
+    """
+    Run another Python file directly within the current script.
+
+    Parameters:
+    - file_path (str): The path to the Python file to be run.
+    - args (list): Additional arguments to pass to the file.
+    """
+    try:
+        # Prepare the arguments
+        sys.argv = [file_path] + args
+
+        # Read and execute the code from the file
+        with open(file_path, "r") as file:
+            code = file.read()
+            exec(code, globals())
+
+    except Exception as e:
+        # Handle any errors that occur during execution
+        print(f"Error running the file: {e}")
+
+def read_text_file(file_path):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            data = file.read()
+        return data
+    except FileNotFoundError:
+        print(f"Error: The file at '{file_path}' was not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+if len(sys.argv) > 2:
+    key = sys.argv[1]
+
 if __name__ == '__main__':
     Set_GENERATIVE_AI_KEY_(key)
