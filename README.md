@@ -48,9 +48,9 @@ The installer will create an organized project structure within the specified ou
 
 ![Project Structure Screenshot](https://github.com/deepak12singh/Makeinstaller-python-project/blob/main/Screenshot/Step%202.png)
 
-## You Can Delete Clone  Git Repository 
+## Step 5: You Can Delete Clone  Git Repository 
  you can Delete  after install  MakeInstaller project  not requirements  for these files because Repository in installed your c: drive  
-
+![Project Structure Screenshot](https://github.com/deepak12singh/Makeinstaller-python-project/blob/main/Screenshot/Screenshot%202024-11-13%20011158.png)
 ## Step-by-Step Usage Guide
 
 1. **Navigate to Your Project Directory**: Go to the folder where your Python project is located. Make sure that the folder name matches the command name you want to use for your project.
