@@ -40,13 +40,13 @@ installer.bat
 
 After the installer finishes running, you should see output similar to the following structure (screenshot below) in the command prompt:
 
-![Installation Process Screenshot](images/installation_process.png)
+![Installation Process Screenshot](Screenshot/step 1.png)
 
 ### Step 4: Verify the Project Structure
 
 The installer will create an organized project structure within the specified output folder. Here’s an example of what it should look like:
 
-![Project Structure Screenshot](images/project_structure.png)
+![Project Structure Screenshot](Screenshot/step 2.png)
 
 ## You Can Delete Clone  Git Repository 
  you can Delete  after install  MakeInstaller project  not requirements  for these files because Repository in installed your c: drive  
