@@ -40,13 +40,13 @@ installer.bat
 
 After the installer finishes running, you should see output similar to the following structure (screenshot below) in the command prompt:
 
-![Installation Process Screenshot](Screenshot/step 1.png)
+![Installation Process Screenshot](https://github.com/deepak12singh/Makeinstaller-python-project/blob/main/Screenshot/step%201.png)
 
 ### Step 4: Verify the Project Structure
 
 The installer will create an organized project structure within the specified output folder. Here’s an example of what it should look like:
 
-![Project Structure Screenshot](Screenshot/step 2.png)
+![Project Structure Screenshot](https://github.com/deepak12singh/Makeinstaller-python-project/blob/main/Screenshot/Step%202.png)
 
 ## You Can Delete Clone  Git Repository 
  you can Delete  after install  MakeInstaller project  not requirements  for these files because Repository in installed your c: drive  
