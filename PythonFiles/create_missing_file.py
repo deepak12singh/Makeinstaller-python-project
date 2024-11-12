@@ -20,11 +20,13 @@ def create_file(file_name, content=''):
 
 def create_files(path,project_name='',config=False,main=False,requirements=False,setting=False):
         
-    main_content = f'''import sys
+    main_content = f'''
+print("Running the Run.py ..................")
+import sys
 import logging
 from setupfiles.help import show_detailed_help, show_command_help
 from config import GENERATIVE_AI_KEY
-from setupfiles.setup import Set_GENERATIVE_AI_KEY_, Set_All_Config
+from setupfiles.setup import Set_GENERATIVE_AI_KEY_, Set_All_Config,read_text_file
 import subprocess
 
 # Setting up logging configuration
@@ -55,10 +57,10 @@ def main():
     if command == 'run':
         if argv[2] == 'here':
             current_path = argv[-1]
-            print(f"     Current path: {{current_path}}     ")
+            print(f"     Current path: {{current_path}}    ")
             logging.info("Current path set to: %s", current_path)
             # Run the setting.py first
-            subprocess.run(['C:\\{project_name}\\.venv\\Scripts\\python.exe', 'setting.py','run','here',  current_path])
+            subprocess.run([r'C:\{project_name}\.venv\Scripts\python.exe', r'setting.py','run','here',  current_path])
             # Now run main.py after setting.py completes
 
         elif argv[2] in ('path', 'p'):
@@ -67,31 +69,36 @@ def main():
                 print(f"     Path: {{specified_path}}     ")
                 logging.info("Path set to: %s", specified_path)
                 # Now run main.py with the specified path
-                subprocess.run(['C:\\{project_name}\\.venv\\Scripts\\python.exe', 'setting.py','run','path',  specified_path])
+                subprocess.run([r'C:\{project_name}\.venv\Scripts\python.exe', r'setting.py','run','path',  specified_path])
             else:
                 logging.error("Path argument missing for command 'path' or 'p'")
                 print("Error: Path argument is missing. Please specify a path after 'path' or 'p' command.")
     elif command in ('help', 'h', '-h'):
         if len(argv) > 3:
-            value = argv[3]
+            print('.................',argv[2])
+            value = argv[2]
             show_command_help(value)
         else:
             show_detailed_help()
     elif command in ('set', '-s'):
-        if len(argv) > 3:
+        argv = argv[:-1]
+        if len(argv) > 2:
             key = argv[2]
-            value = argv[3]
             if key == 'key':
+                value = argv[3]
                 print(f"     Path: {{key}}  = {{value}}   ")
                 Set_GENERATIVE_AI_KEY_(value)
+            elif key == '-h':
+                print(read_text_file('config.py'))
             else:
+                value = argv[3]
                 Set_All_Config(key, value)
         else:
-            logging.error("Path argument missing for command 'path' or 'p'")
-            print("Error: Path argument is missing. Please specify a path after 'path' or 'p' command.")
+            logging.error("Path argument missing for command 'set' or '-s'")
+            print("Error: key argument is missing. Please specify a key after 'key' and 'value' of it command.")
     else:
         logging.info("Displaying detailed help.")
-        command_setting = ['C:\\{project_name}\\.venv\\Scripts\\python.exe', 'setting.py']
+        command_setting = [r'C:\{project_name}\.venv\Scripts\python.exe', r'setting.py']
         for i in argv:
             command_setting.append(i)
         subprocess.run(command_setting)
@@ -99,6 +106,9 @@ def main():
 if __name__ == '__main__':
     main()
     logging.info("Script ended")
+
+    
+
 
     '''
     config_content = f'''
@@ -126,17 +136,18 @@ def main():
             print(f"Setting current path to: {{current_path}}")
             # After setting up, now call main.py with the correct argument
             try:
-                subprocess.run(['C:\\{project_name}\\.venv\\Scripts\\python.exe', 'main.py', current_path])
+                subprocess.run([r'C:\{project_name}\.venv\Scripts\python.exe', r'main.py', current_path])
             except Exception as e:
                 print(f"Error executing main.py: {{str(e)}}")
     else:
         show_detailed_help()
-        print("Error: Invalid command passed to setting.py")
+
 
 
 if __name__ == '__main__':
     main()
 
+    
     '''
 
 

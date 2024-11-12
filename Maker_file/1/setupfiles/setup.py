@@ -130,6 +130,17 @@ def run_other_file(file_path, args):
         # Handle any errors that occur during execution
         print(f"Error running the file: {e}")
 
+def read_text_file(file_path):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            data = file.read()
+        return data
+    except FileNotFoundError:
+        print(f"Error: The file at '{file_path}' was not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+
 key = sys.argv[1]
 if __name__ == '__main__':
     Set_GENERATIVE_AI_KEY_(key)

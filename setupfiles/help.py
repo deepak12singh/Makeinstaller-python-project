@@ -21,7 +21,7 @@ def show_detailed_help():
     print("   - MakeInstaller -h <command>       : Show help for specific commands.")
     
     print("\n2. Running the Script:")
-    print("   - MakeInstaller here               : Run the script with the current directory as argument.")
+    print("   - MakeInstaller run here               : Run the script with the current directory as argument.")
     print("   - This command assumes that your PDF files are stored in the current directory.")
 
     print("\n3. Setting the Generative AI Key:")

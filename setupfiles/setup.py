@@ -1,6 +1,5 @@
 import sys
-import subprocess
-
+GENERATIVE_AI_KEY = 'AIzaSyDDxDW0vukR0mrwrR_4b2CMqnkSwA7T6H4'
 def find_line_number(filename, search_key):
     """Finds and returns the line numbers where `search_key` appears in the file. 
     If not found, returns the line number after the last line."""
@@ -89,33 +88,6 @@ def Set_GENERATIVE_AI_KEY_(key='None'):
     # Insert the new data at the specified line number
     insert_line_at_number(filename, line_number, f"GENERATIVE_AI_KEY = '{key}'")
     print('Succefuly update GENERATIVE_AI_KEY = ',key)
-
-
-
-def run_other_file(file_path, *args):
-    """
-    Run another Python file from the current script with optional arguments.
-    
-    Parameters:
-    - file_path (str): The path to the Python file to be run.
-    - *args: Additional arguments to pass to the file.
-    """
-    try:
-        # Prepare the command with the file path and any additional arguments
-        command = [sys.executable, file_path] + list(args)
-        
-        # Run the command
-        result = subprocess.run(command, check=True, capture_output=True, text=True)
-        
-        # Output the result (stdout) from the executed file
-        print("Output from the file:")
-        print(result.stdout)
-
-    except subprocess.CalledProcessError as e:
-        # Handle errors if the file execution fails
-        print(f"Error running the file: {e}")
-        print(f"Standard error output:\n{e.stderr}")
-
 
 key = sys.argv[1]
 if __name__ == '__main__':
