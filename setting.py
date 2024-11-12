@@ -23,6 +23,5 @@ def run_other_file(file_path, args):
 
     except subprocess.CalledProcessError as e:
         print(f"Error running the file: {e}")
-        print(f"Standard error output:
-{e.stderr}")
+        print(f"Standard error output:{e.stderr}")
 

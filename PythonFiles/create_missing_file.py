@@ -21,7 +21,6 @@ def create_file(file_name, content=''):
 def create_files(path,project_name='',config=False,main=False,requirements=False,setting=False):
         
     main_content = f'''
-print("Running the Run.py ..................")
 import sys
 import logging
 from setupfiles.help import show_detailed_help, show_command_help
@@ -44,7 +43,7 @@ def main():
     # Check if there are enough command-line arguments
     if len(sys.argv) < 3:
         logging.error("Insufficient arguments provided.")
-        print("Error: Insufficient arguments provided. Use 'autodata help' for usage information.")
+        print("\\n   Error: Insufficient arguments provided. Use '{project_name} help' for usage information.\\n")
         return
 
     # Retrieve command-line arguments
@@ -57,7 +56,7 @@ def main():
     if command == 'run':
         if argv[2] == 'here':
             current_path = argv[-1]
-            print(f"     Current path: {{current_path}}    ")
+            # print(f"     Current path: {{current_path}}    ")
             logging.info("Current path set to: %s", current_path)
             # Run the setting.py first
             subprocess.run([r'C:\{project_name}\.venv\Scripts\python.exe', r'setting.py','run','here',  current_path])
@@ -73,6 +72,10 @@ def main():
             else:
                 logging.error("Path argument missing for command 'path' or 'p'")
                 print("Error: Path argument is missing. Please specify a path after 'path' or 'p' command.")
+        else:
+            show_command_help('run')
+            
+        
     elif command in ('help', 'h', '-h'):
         if len(argv) > 3:
             print('.................',argv[2])
@@ -123,7 +126,6 @@ time_dale = 1.52
 import sys
 import subprocess
 from setupfiles.help import show_detailed_help
-print("running the setting file ")
 def main():
     # Check if there are enough command-line arguments
     argv = sys.argv
@@ -133,7 +135,7 @@ def main():
         if argv[2] in ('path', 'here'):
             # Get the current path
             current_path = sys.argv[3]
-            print(f"Setting current path to: {{current_path}}")
+            # print(f"Setting current path to: {{current_path}}")
             # After setting up, now call main.py with the correct argument
             try:
                 subprocess.run([r'C:\{project_name}\.venv\Scripts\python.exe', r'main.py', current_path])
