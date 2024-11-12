@@ -76,3 +76,6 @@ The installer will create an organized project structure within the specified ou
 This project allows you to make any Python file or project globally accessible on your system, automating help, configuration, and virtual environment setup.
 
 ---
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
