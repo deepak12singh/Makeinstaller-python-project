@@ -1,5 +1,3 @@
-To make your README more user-friendly, you can add a step-by-step guide that breaks down the installation and usage process. Here’s how you can structure it:
-
 ---
 
 # Makeinstaller-python-project
@@ -78,5 +76,3 @@ The installer will create an organized project structure within the specified ou
 This project allows you to make any Python file or project globally accessible on your system, automating help, configuration, and virtual environment setup.
 
 ---
-
-By breaking it down into specific steps, users can easily follow along and complete the setup and usage without confusion. Make sure to upload your screenshots to a folder like `images` in your repository so that they appear correctly in the README. Let me know if there’s anything more specific you’d like to include!
