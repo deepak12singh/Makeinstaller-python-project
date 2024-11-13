@@ -13,6 +13,19 @@ if errorlevel 1 (
     exit /b 1
 )
 
+
+
+if "%~1"=="uninstall" (
+    :: Run the Python script to remove path
+    python "%PROJECT_DIR%\setupfiles\remove_path.py" "%PROJECT_DIR%"
+    call %PROJECT_DIR%\setupfiles\uninstaller.bat
+    if errorlevel 1 (
+        echo Failed to run remove_path.py script.
+        pause
+        exit /b 1
+    )
+)
+
 :: Check if the virtual environment folder exists
 if not exist ".\.venv\Scripts\activate" (
     echo Virtual environment not found at .\.venv.
@@ -35,6 +48,8 @@ if errorlevel 1 (
     pause
     exit /b 1
 )
+
+
 
 :: Handle the 'here' or 'set' command
 if "%~1"=="run" (

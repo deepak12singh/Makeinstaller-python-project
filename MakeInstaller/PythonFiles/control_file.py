@@ -75,5 +75,7 @@ def setup_project(current_path,build_in_file_path):
     replace_all_values_in_file(os.path.join(file_setup_path,'help.txt'),'autopost',project_name)
     replace_all_values_in_file(os.path.join(file_setup_path,'run.txt'),'autopost',project_name)
     replace_all_values_in_file(os.path.join(file_setup_path,'key.txt'),'autopost',project_name)
+    path_uninstall = os.path.join(copy_destination_path,'setupfiles','uninstaller.bat')
+    replace_all_values_in_file(path_uninstall,'ProjectStart',project_name)
 
 
