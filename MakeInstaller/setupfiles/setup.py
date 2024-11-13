@@ -140,8 +140,7 @@ def read_text_file(file_path):
     except Exception as e:
         print(f"An error occurred: {e}")
 
-if len(sys.argv) > 2:
-    key = sys.argv[1]
 
+key = sys.argv[1]
 if __name__ == '__main__':
     Set_GENERATIVE_AI_KEY_(key)

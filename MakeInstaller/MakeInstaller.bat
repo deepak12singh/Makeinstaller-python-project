@@ -13,6 +13,19 @@ if errorlevel 1 (
     exit /b 1
 )
 
+
+
+if "%~1"=="uninstall" (
+    :: Run the Python script to remove path
+    python "%PROJECT_DIR%\setupfiles\remove_path.py" "%PROJECT_DIR%"
+    call %PROJECT_DIR%\setupfiles\uninstaller.bat
+    if errorlevel 1 (
+        echo Failed to run remove_path.py script.
+        pause
+        exit /b 1
+    )
+)
+
 :: Check if the virtual environment folder exists
 if not exist ".\.venv\Scripts\activate" (
     echo Virtual environment not found at .\.venv.
@@ -36,36 +49,18 @@ if errorlevel 1 (
     exit /b 1
 )
 
+
+
 :: Handle the 'here' or 'set' command
 if "%~1"=="run" (
     :: Run the Python script with CURRENT_DIR as an argument
-    python main.py %* "%CURRENT_DIR%"
+    python run.py %* "%CURRENT_DIR%"
     if errorlevel 1 (
-        echo Failed to run main.py.
+        echo Failed to run run.py.
         pause
     )
-) else if "%~1"=="set" (
-    :: Check if the second argument is 'key' and there is a third argument
-    if "%~2"=="key" (
-        if not "%~3"=="" (
-            python setupfiles\setup.py %~3
-            if errorlevel 1 (
-                echo Failed to run setup.py with key.
-                pause
-            )
-        ) else (
-            python setupfiles\help.py %*
-            
-        )
-    ) else (
-        python setupfiles\help.py %*
-        if errorlevel 1 (
-            echo Failed to run help.py.
-            
-        )
-    )
 ) else (
-    python setupfiles\help.py %*
+    python run.py %* "%CURRENT_DIR%"
     if errorlevel 1 (
         echo Failed to run help.py.
         
