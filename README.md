@@ -60,7 +60,13 @@ The installer will create an organized project structure within the specified ou
    ```bash
    MakeInstaller run here
    ```
-3. **Install Your Project**:  After Create Success.  Create Automatically  a Output Folder Than Go-to Output Folder and run file installer.bat then install success.
+
+3. **Go To Output Folder**  After Create Success. Create Automatically  a Output Folder
+   ```bash
+   cd OUTPUT
+   ```
+   
+3. **Install Your Project**: Run file installer.bat then install success.
     ```bash
    installer.bat
    ```
