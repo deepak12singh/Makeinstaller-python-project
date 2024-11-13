@@ -60,12 +60,21 @@ if "%~1"=="run" (
         pause
     )
 ) else (
-    python run.py %* "%CURRENT_DIR%"
-    if errorlevel 1 (
-        echo Failed to run help.py.
-        
+    if "%~1"=="uninstall" (
+        echo.
+        echo.                             ... Thanks for using ProjectStart, nice to meet you ...
+        echo.                                                                                                   
+        echo.                                        Uninstallation complete.
+        echo.                                                                                                        
+    ) else (
+        python run.py %* "%CURRENT_DIR%"
+        if errorlevel 1 (
+            echo Failed to run help.py.
+            pause
+        )
     )
 )
+
 
 :: Deactivate the virtual environment
 call deactivate

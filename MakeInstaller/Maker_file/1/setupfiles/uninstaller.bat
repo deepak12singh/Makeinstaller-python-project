@@ -7,7 +7,7 @@ set PROJECT_PATH=C:\%project_name%
 REM Check for administrator privileges
 net session >nul 2>&1
 if %errorlevel% neq 0 (
-    echo Requesting administrator privileges...
+    REM echo Requesting administrator privileges...
     powershell -Command "Start-Process '%~f0' -Verb RunAs"
     exit /b
 )

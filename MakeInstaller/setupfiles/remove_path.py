@@ -29,7 +29,7 @@ def remove_from_system_path(path_to_remove):
                 print(f"The path '{path_to_remove}' is not in the PATH environment variable.")
             
             # Display the updated PATH
-            print(f"New PATH:\n{new_path_env}")
+            # print(f"New PATH:\n{new_path_env}")
     except FileNotFoundError:
         print("Could not find the PATH variable in the registry.")
     except Exception as e:
