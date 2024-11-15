@@ -3,7 +3,7 @@ Help for 'Set Key' Command:
 This command is used to configure the Generative AI key for the script.
 Without the correct key, some script features will not work.
 
-Command: autopost set key <key_value>
+Command: ProjectStart set key <key_value>
 
 Common Use Case:
    - Use this command to set your Generative AI API key.

@@ -72,9 +72,9 @@ def setup_project(current_path,build_in_file_path):
     # Update the installer batch file with the project name
     replace_all_values_in_file(os.path.join(result_path, 'installer.bat'), 'ProjectStart' , project_name)
     file_setup_path = os.path.join(copy_destination_path,'setupfiles','helptxtfile')
-    replace_all_values_in_file(os.path.join(file_setup_path,'help.txt'),'autopost',project_name)
-    replace_all_values_in_file(os.path.join(file_setup_path,'run.txt'),'autopost',project_name)
-    replace_all_values_in_file(os.path.join(file_setup_path,'key.txt'),'autopost',project_name)
+    replace_all_values_in_file(os.path.join(file_setup_path,'help.txt'),'ProjectStart',project_name)
+    replace_all_values_in_file(os.path.join(file_setup_path,'run.txt'),'ProjectStart',project_name)
+    replace_all_values_in_file(os.path.join(file_setup_path,'key.txt'),'ProjectStart',project_name)
     path_uninstall = os.path.join(copy_destination_path,'setupfiles','uninstaller.bat')
     replace_all_values_in_file(path_uninstall,'ProjectStart',project_name)
 

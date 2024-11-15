@@ -3,10 +3,10 @@ Help for 'Run Code' Command:
 This command starts the main script with the current directory as the argument.
 Use the 'here' argument to specify the directory where your files are stored.
 
-Command: autopost run here
+Command: ProjectStart run here
 
 Common Use Case:
-   - If your Files are stored in the same folder as this script, use the command 'autopost run here' to run it.
+   - If your Files are stored in the same folder as this script, use the command 'ProjectStart run here' to run it.
    - Make sure that the directory path is correct.
 
 Troubleshooting:

@@ -2,29 +2,39 @@
 
 REM Define the project name and paths
 set "project_name=ProjectStart"
-set PROJECT_PATH=C:\%project_name%
+set "PROJECT_PATH=C:\PythonCostumScript\%project_name%"
 
-REM Check for administrator privileges
+:: Check for administrator privileges
 net session >nul 2>&1
-if %errorlevel% neq 0 (
-    REM echo Requesting administrator privileges...
+if errorlevel 1 (
+    echo [Error] Administrator privileges are required to uninstall.
     powershell -Command "Start-Process '%~f0' -Verb RunAs"
     exit /b
 )
 
-REM Step 1: Remove the project folder
+:: Run Python script to remove path registration
+echo Removing registered paths...
+python "%PROJECT_PATH%\setupfiles\remove_path.py" "%PROJECT_PATH%"
+if errorlevel 1 (
+    echo [Error] Failed to unregister paths.
+    exit /b 1
+)
+
+:: Remove the project folder
 if exist "%PROJECT_PATH%" (
     echo Deleting project folder at %PROJECT_PATH%...
     rmdir /S /Q "%PROJECT_PATH%"
-    if %errorlevel% neq 0 (
-        echo Error: Failed to delete project folder. Exiting...
-        exit /b
+    if errorlevel 1 (
+        echo [Error] Failed to delete the project folder.
+        exit /b 1
     )
-    echo Project folder deleted.
+    echo Project folder deleted successfully.
 ) else (
-    echo Warning: Project folder not found at %PROJECT_PATH%.
+    echo [Warning] Project folder not found at %PROJECT_PATH%.
 )
 
-REM Notify completion
-echo Uninstallation complete.
-pause
+:: Notify completion
+
+exit /b 0
+
+
