@@ -1,10 +1,10 @@
 @echo off
-:: ================================================
+:: ----------------------------------------------------
 :: Batch Script to Manage Python Project
 :: Author: Deepak Singh
 :: Description: Automates setup, activation, running,
 ::              and uninstallation of a Python project.
-:: ================================================
+:: -----------------------------------------------------
 
 :: Store the current directory
 set "CURRENT_DIR=%CD%"
@@ -69,14 +69,14 @@ if errorlevel 1 (
 
 :: Handle 'run' or default command
 if "%~1"=="run" (
-    echo Running the main script...
+    :: echo Running the main script...
     python run.py %* "%CURRENT_DIR%"
     if errorlevel 1 (
         echo [Error] Failed to execute run.py.
         pause
     )
 ) else (
-    echo Running the default script...
+    :: echo Running the default script...
     python run.py %* "%CURRENT_DIR%"
     if errorlevel 1 (
         echo [Error] Failed to execute run.py.
@@ -93,5 +93,5 @@ if errorlevel 1 (
 
 :: Return to the original directory
 cd /d "%CURRENT_DIR%"
-echo Script completed successfully.
+:: echo Script completed successfully.
 exit /b 0

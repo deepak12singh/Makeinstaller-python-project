@@ -37,7 +37,7 @@ def main():
             # print(f"     Current path: {current_path}    ")
             logging.info("Current path set to: %s", current_path)
             # Run the setting.py first
-            subprocess.run([r'C:\MakeInstaller\.venv\Scripts\python.exe', r'setting.py','run','here',  current_path])
+            subprocess.run([r'C:\PythonCostumScript\MakeInstaller\.venv\Scripts\python.exe', r'setting.py','run','here',  current_path])
             # Now run main.py after setting.py completes
 
         elif argv[2] in ('path', 'p'):
@@ -46,7 +46,7 @@ def main():
                 print(f"     Path: {specified_path}     ")
                 logging.info("Path set to: %s", specified_path)
                 # Now run main.py with the specified path
-                subprocess.run([r'C:\MakeInstaller\.venv\Scripts\python.exe', r'setting.py','run','path',  specified_path])
+                subprocess.run([r'C:\PythonCostumScript\MakeInstaller\.venv\Scripts\python.exe', r'setting.py','run','path',  specified_path])
             else:
                 logging.error("Path argument missing for command 'path' or 'p'")
                 print("Error: Path argument is missing. Please specify a path after 'path' or 'p' command.")
@@ -79,7 +79,7 @@ def main():
             print("Error: key argument is missing. Please specify a key after 'key' and 'value' of it command.")
     else:
         logging.info("Displaying detailed help.")
-        command_setting = [r'C:\MakeInstaller\.venv\Scripts\python.exe', r'setting.py']
+        command_setting = [r'C:\PythonCostumScript\MakeInstaller\.venv\Scripts\python.exe', r'setting.py']
         for i in argv:
             command_setting.append(i)
         subprocess.run(command_setting)

@@ -14,7 +14,7 @@ def main():
             # print(f"Setting current path to: {current_path}")
             # After setting up, now call main.py with the correct argument
             try:
-                subprocess.run([r'C:\MakeInstaller\.venv\Scripts\python.exe', r'main.py', current_path])
+                subprocess.run([r'C:\PythonCostumScript\MakeInstaller\.venv\Scripts\python.exe', r'main.py', current_path])
             except Exception as e:
                 print(f"Error executing main.py: {str(e)}")
     else:
